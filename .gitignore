@@ -12,6 +12,7 @@
 *.avi
 *.log
 *.bak
+*.dsk
 /Doc/Html
 win32/
 __history/

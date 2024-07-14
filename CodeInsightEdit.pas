@@ -2,6 +2,8 @@
 
 interface
 
+{DEFINE TESTLOGGING }
+
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -12,7 +14,9 @@ uses
   System.Classes,
   Vcl.Graphics,
   Vcl.Grids,
+{$IFDEF  TESTLOGGING}
   CodeSiteLogging,
+{$ENDIF}
   GX_StringList,
   Vcl.Controls,
   Vcl.Forms,
@@ -1218,8 +1222,9 @@ begin
         End;
       End;
 
+{$IFDEF  TESTLOGGING}
       CodeSite.Send('Parameter Name: >' + AStr + '<  --->' + AParamName + '<');
-
+{$ENDIF}
     End;
     If SameText(cParamOff, Copy(AStr, 1, Length(cParamOff))) Then
     Begin
@@ -1232,13 +1237,17 @@ begin
   Begin
     If SameText(cDocOMaticOn, Copy(AStr, 1, Length(cDocOMaticOn))) Then
     Begin
+{$IFDEF  TESTLOGGING}
       CodeSite.Send('Doc-O-Matic On: ' + sLineBreak + AStr);
+{$ENDIF}
       Result         := cic_DocOMatic;
       ANextOperation := pno_Continue;
     End;
     If SameText(cDocOMaticOff, RightStr(AStr, Length(cDocOMaticOff))) Then
     Begin
+{$IFDEF  TESTLOGGING}
       CodeSite.Send('Doc-O-Matic Off: ' + sLineBreak + AStr);
+{$ENDIF}
       Result         := cic_UnKnown;
       ANextOperation := pno_SetDocOMatic;
     End;
@@ -1273,9 +1282,11 @@ begin
       LValueStr       := Copy(LValueStr, 1, LPosValue - 1);
       ADocOMaticValue := LValueStr;
     End;
+{$IFDEF  TESTLOGGING}
     CodeSite.Send('Doc-O-Matic Input: ' + LValue);
     CodeSite.Send('Doc-O-Matic Name : ' + ADocOMaticName);
     CodeSite.Send('Doc-O-Matic Value: ' + ADocOMaticValue);
+{$ENDIF}
   End;
 end;
 
@@ -1441,8 +1452,9 @@ begin
         If FDocOMatic And (LNextOperation = pno_SetDocOMatic) Then
         begin
 
+{$IFDEF  TESTLOGGING}
           CodeSite.Send('Operation SetDocOMatic');
-
+{$ENDIF}
           If (LDocOMaticValue = EmptyStr) Then
           begin
             LDocOMaticValue := LStr;
@@ -1512,7 +1524,9 @@ begin
 
         If FDocOMatic And (LComType = cic_DocOMatic) Then
         Begin
+{$IFDEF  TESTLOGGING}
           CodeSite.Send('Concat Doc-O-Matic: ' + sLineBreak + LStr);
+{$ENDIF}
           If (LDocOMaticValue = EmptyStr) Then
           Begin
             LDocOMaticValue := LStr;
@@ -1746,9 +1760,11 @@ end;
 
 procedure Tfrm_CodeInsightEdit.InitData;
 begin
-  FENumDefinition  := EmptyStr;
-  FTestVersion     := False;
+  FENumDefinition := EmptyStr;
+  FTestVersion    := False;
+{$IFDEF  TESTLOGGING}
   CodeSite.Enabled := False;
+{$ENDIF}
   FSaved           := False;
   FCanShow         := False;
   FObjectSummary   := False;
@@ -2060,9 +2076,10 @@ begin
 
     End;
 
+{$IFDEF  TESTLOGGING}
     // CodeSite.Send('Part 2: ' + LStr);
     CodeSite.Send('SourcePart: ' + Format('StartLine: %d  EndLine: %d', [FStartLine, FEndLine]) + sLineBreak + FSourcePart.Text);
-
+{$ENDIF}
     lblObjectName.Caption := 'Object: ' + GetObjectName(LStr);
 
     LCheck01 := (FObjectType <> cio_Unknown);
@@ -2387,7 +2404,9 @@ Var
 begin
   If FEnumElementSummary Then
   Begin
+{$IFDEF  TESTLOGGING}
     CodeSite.Send('Setzen Enum Kommentar >' + AEnumComment + '< für >' + AEnumName + '<');
+{$ENDIF}
     for Var i := 1 to FEnumElements.RowCount - 1 do
     begin
       If SameText(FEnumElements.Cells[0, i], AEnumName) Then
@@ -2452,8 +2471,10 @@ end;
 
 procedure Tfrm_CodeInsightEdit.SetFTestVersion(const Value: Boolean);
 begin
-  FTestVersion     := Value;
+  FTestVersion := Value;
+{$IFDEF  TESTLOGGING}
   CodeSite.Enabled := FTestVersion;
+{$ENDIF}
 end;
 
 procedure Tfrm_CodeInsightEdit.SetParamComment(const AComment, AParamName: String);
@@ -2462,7 +2483,10 @@ Var
 begin
   If FParamSummary Then
   Begin
+
+{$IFDEF  TESTLOGGING}
     CodeSite.Send('Setzen Parameter Kommentar >' + AComment + '< für >' + AParamName + '<');
+{$ENDIF}
     for Var i := 1 to FParamElements.RowCount - 1 do
     begin
       If SameText(FParamElements.Cells[0, i], AParamName) Then
