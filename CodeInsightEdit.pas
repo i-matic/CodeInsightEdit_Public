@@ -98,47 +98,54 @@ type
 
     );
 
+  /// <summary>
+  /// Objekte deren Kommentare mit diesem Experten bearbeitet
+  /// werden können
+  /// </summary>
   TCIObjectTypes = (
 
-    /// <summary>
-    /// nicht erkanntes zu kommentierendes Objekt
-    /// </summary>
-    cio_Unknown,
+  /// <summary>
+  /// nicht erkanntes zu kommentierendes Objekt
+  /// </summary>
+  cio_Unknown,
 
-    /// <summary>
-    /// zu kommentierendes Attribut erkannt
-    /// </summary>
-    cio_Attribute,
+  /// <summary>
+  /// zu kommentierendes Attribut erkannt
+  /// </summary>
+  cio_Attribute,
 
-    /// <summary>
-    /// zu kommentierende Prozedur erkannt
-    /// </summary>
-    cio_Procedure,
+  /// <summary>
+  /// zu kommentierende Prozedur erkannt
+  /// </summary>
+  cio_Procedure,
 
-    /// <summary>
-    /// zu kommentierende Funktion erkannt
-    /// </summary>
-    cio_Function,
+  /// <summary>
+  /// zu kommentierende Funktion erkannt
+  /// </summary>
+  cio_Function,
 
-    /// <summary>
-    /// zu kommentierenden Aufzählungstyp erkannt
-    /// </summary>
-    cio_Enum,
+  /// <summary>
+  /// zu kommentierenden Aufzählungstyp erkannt
+  /// </summary>
+  cio_Enum,
 
-    /// <summary>
-    /// zu kommentierende Klasse erkannt
-    /// </summary>
-    cio_Class,
+  /// <summary>
+  /// zu kommentierende Klasse erkannt
+  /// </summary>
+  cio_Class,
 
-    /// <summary>
-    /// Doc-OMatic Element erkannt
-    /// </summary>
-    cio_DocOMatic,
+  /// <summary>
+  /// Doc-OMatic Element erkannt
+  /// </summary>
+  cio_DocOMatic,
 
-    /// <summary>
-    /// zu kommentierendes Property erkannt
-    /// </summary>
-    cio_Property);
+  /// <summary>
+  /// zu kommentierendes Property erkannt
+  /// </summary>
+  cio_Property
+
+  );
+
 
   /// <summary>
   /// Formular zum Erfassen der Kommentare
@@ -2707,3 +2714,4 @@ begin
 end;
 
 end.
+
