@@ -13,18 +13,22 @@ Mit der expertManager.exe im binary Verzeichnis des GExperts Downloads gelingt d
 Nach dem nächsten Start der Delphi IDE sieht dass dann so aus:
 
 Experten Verwaltung:
-![image](https://github.com/user-attachments/assets/c450cc4c-893e-4489-a666-4bf96e5ce6b4)
+
+![CodeInsight01](https://github.com/user-attachments/assets/4acfa7f6-88aa-42cf-be54-c84411b49bd7)
+
 
 Einstellen des HotKeys
 
 Einstellen, welche Objekte kommentiert werden können
 
-![image](https://github.com/user-attachments/assets/49672874-25b0-4220-83d5-d0790f7ae526)
+![CodeInsight02](https://github.com/user-attachments/assets/32e6f17a-f851-4278-ba70-768b15fe5c08)
+
 
 Den Experten über das UnterMenü der Editor Experten des GExperts Menüs in Delphi oder per Hotkey
 an der Deklarationszeile im Interface Abschnitt aufrufen.
 
-![image](https://github.com/user-attachments/assets/b80d7f84-0ecf-4d10-85c7-dd9bdfaf21df)
+![CodeInsight03](https://github.com/user-attachments/assets/9afd827f-4f93-4171-91df-5df3bd7a8610)
+
 
 Kommentare erfassen 
 
